@@ -7,6 +7,6 @@ $c = $_GET['c'];
 else 
 $c='accueil';
 
-include('Controleur/' . $c .'.php');
+include('controller/' . $c .'.php');
 
 ?>

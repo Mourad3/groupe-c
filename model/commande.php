@@ -1,8 +1,10 @@
 <?php
+include('../model/client.php');
+include('../model/produit.php');
 class Commande
 {
-	private Client $client;
-	private Produit $produit;
+	private $client;
+	private $produit;
 	private $statut;
 	private $dateCommande;
 	private $db;
@@ -25,7 +27,7 @@ class Commande
 	public function getProduit(){
 		return $this->produit;
 	}
-	public function setProduit($produit){
+	public function setProduit(Produit $produit){
 		 $this->produit=$produit;
 	}
 	/**

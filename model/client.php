@@ -10,8 +10,8 @@ include('../model/panier.php');
 	private  $dateNaiss;
 	private  $adresse;
 	private  $email;
-	private Espace $espace;
-	private Panier $panier;
+	private $espace;
+	private $panier;
 	private $db;
 //Constructeur de la classe client
     public function __construct(){

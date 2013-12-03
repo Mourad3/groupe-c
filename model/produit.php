@@ -70,25 +70,19 @@ class Produit
 		 $this->quantite=$quantite;
 	}
 	/**
+	**	categorie
+	**/
+	public function getCategorie(){
+		return $this->categorie;
+	}
+	public function setCategorie(Categorie $categorie){
+		 $this->categorie=$categorie;
+	}
+	/**
 	** fonction toString()
 	**/
 	public function __toString(){
 	return $id;
 	}	
-	public function listeProduit()
-	{
-		$query = 'select * from produit';
-		$res = mysql_query($query);
-        $items = array();
-        while ($ligne = mysql_fetch_assoc($res)) {
-            $item = new Produit();
-            $item->id = $ligne['idProduit'];
-            $item->libelle = $ligne['libelleProduit'];
-            $item->description = $ligne['description'];
-            $item->prix = $ligne['prix'];
-            $items[] = $item;
-        }
-	return $items;
-	}
 		
 }

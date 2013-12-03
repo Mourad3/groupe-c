@@ -5,10 +5,10 @@ class Produit_Panier
 {
 	private $produit;
 	private $panier;
-	private $db;
 	//Constructeur par défaut de la classe Produit_Panier
 	public function __construct(){
 		$this->db = new db();
+		$_SESSION["login"]='reda48';
 	}
 	/**
 	**	Produit
@@ -29,8 +29,13 @@ class Produit_Panier
 		 $this->panier=$panier;
 	}
 	public function listeProduit()
-	{
-		$query = 'select * from produit';
+	{	
+		$login=$_SESSION["login"];
+		$sql1="select p.idPanier as idPanier from panier p,client c,espace_personnel e where p.idPanier=c.idPanier and c.id_espace=e.id_espace and e.login='".$login."'";
+		$req1=mysql_query($sql1);
+		$data1=mysql_fetch_assoc($req1);
+		$idPanier=$data1['idPanier'];		
+		$query = "select * from produit pr,produit_panier pp,panier pa where pr.idProduit=pp.idProduit and pp.idPanier=pa.idPanier and pa.idPanier='".$idPanier."'";
 		$res = mysql_query($query);
         $items = array();
         while ($ligne = mysql_fetch_assoc($res)) {
@@ -39,6 +44,9 @@ class Produit_Panier
             $item->setLibelle($ligne['libelleProduit']);
             $item->setDescription($ligne['description']);
             $item->setPrix($ligne['prix']);
+			$cat=new Categorie();
+			$cat->setId($ligne['idCategorie']);
+			$item->setCategorie($cat);
             $items[] = $item;
         }
 	return $items;

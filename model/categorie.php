@@ -35,7 +35,7 @@
 	** fonction toString()
 	**/
 	public function __toString(){
-	return $id;
+	return $categorie;
 	}
     }
 ?>
