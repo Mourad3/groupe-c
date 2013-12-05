@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<title>Ochoco Shop</title>
+		<meta charset="ISO-8859-1">
+		<title><?php echo $title;?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<!-- Metatag -->
@@ -11,12 +11,12 @@
 		<meta property="og:description" content="Minimalist  Responsive eCommerce Template" />
 	
 		
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/font.css" />
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="view/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="view/css/font.css" />
+		<link rel="stylesheet" href="view/css/style.css" />
 		
 		<!-- Favicon -->
-		<link rel="icon" href="img/hsfavicon.png">
+		<link rel="icon" href="view/img/hsfavicon.png">
 		
 		<!-- =========== -->
 		<!-- Google Font -->
@@ -38,7 +38,7 @@
 			})();
 			
 		</script>
-		
+		<script src="view/js/select.js"></script>
 		<style type="text/css">
 		
 			/* Add Google Font name here */
@@ -52,7 +52,7 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<!--[if IE 7]>
-			<link rel="stylesheet" href="css/ie7.css" />
+			<link rel="stylesheet" href="view/css/ie7.css" />
 		<![endif]-->
 		
 	</head>
@@ -92,7 +92,7 @@ width: 70px">
 					<div class="top row">
 						
 						<div class="span8 logo text" style="display:none"><a href="index.html">Ochoco Shop</a></div>
-						<div class="span8 logo image"><a href="index.php"><img src="img/highreslogo.png" alt="" /></a></div>
+						<div class="span8 logo image"><a href="index.php"><img src="view/img/highreslogo.png" alt="" /></a></div>
 						
 						<div class="cart span4">
 							<form action="#" class="topsearch">
