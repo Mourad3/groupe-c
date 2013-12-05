@@ -1,6 +1,6 @@
 <?php
-include('../model/client.php');
-include('../model/produit.php');
+include('model/client.php');
+include('model/produit.php');
 class Commande
 {
 	private $client;
@@ -19,7 +19,7 @@ class Commande
 		return $this->client;
 	}
 	public function setClient(Client $client){
-		 $this->id=$id;
+		 $this->client=$client;
 	}
 	/**
 	**	Produit
@@ -49,4 +49,4 @@ class Commande
 		 $this->dateCommande=$dateCommande;
 	}	
 	
-}
+}	

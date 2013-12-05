@@ -1,6 +1,6 @@
 <?php
-include('../model/espace.php');
-include('../model/panier.php');
+include('model/espace.php');
+include('model/panier.php');
  class Client
 {
 	private  $id;
