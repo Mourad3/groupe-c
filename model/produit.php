@@ -1,5 +1,5 @@
 <?php
-include('model/categorie.php');
+include('../model/categorie.php');
 class Produit
 {
 	private $id;
@@ -9,6 +9,7 @@ class Produit
 	private $couleur;
 	private $quantite;
 	private $categorie;
+	private $db;
 	
 	//Constructeur par défaut de la classe Produit
 	public function __construct(){
