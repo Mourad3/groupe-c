@@ -2,6 +2,8 @@
 include 'includes/header.inc';
 ?>
 <div class="container">
+<br/>
+<h2>Validation Panier</h2>
 <form action="" method="" >
 	<table border="1">
 		<tr>
@@ -18,14 +20,22 @@ include 'includes/header.inc';
 		<td><?php echo $item->getLibelle();?></td>
 		<td><?php echo $item->getPrix();?></td>
 		<td><?php echo $item->getDescription();?></td>
-		<td>cat</td>
-		<td><input type ="checkbox" name="v1" value="a"/></td>
+		<td><?php echo $item->getCategorie();?></td>
+		<td><input type ="checkbox" name="v[<?php echo $item->getId();?>]" value="<?php echo $item->getId();?>"/></td>
+		</tr>
+		<tr>
+		<td>Nbre d'achats:</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>Cocher Tout<input type="checkbox" name="v6" id="tous" value="f" onclick="cocher(true);" /></td>
 		</tr>
 		<?php } ?>
 	</table>
-	<br/>Nbre d'achats:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="button" value="Validation d'achat"/>&nbsp;&nbsp;&nbsp;&nbsp;
-	Cocher Tout<input type="checkbox" name="v6" id="tous" value="f" onclick="cocher(true);" />
+	<br/>
+	<input type="button" value="Validation d'achat"/><br/>
+	
 </form>
 </center>			
 </div>

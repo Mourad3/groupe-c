@@ -38,7 +38,7 @@
 			})();
 			
 		</script>
-		
+		<script src="../view/js/select.js"></script>
 		<style type="text/css">
 		
 			/* Add Google Font name here */
