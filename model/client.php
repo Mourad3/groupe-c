@@ -131,5 +131,34 @@ include('model/panier.php');
 	public function __toString(){
 	return $id;
 	}
+	
+     	public function SupprimerClient($id)
+	{
+	$req="DELETE FROM client WHERE idClient={$id}";
+	mysql_query($req) or die("erreur :".mysql_error());
+	echo "<script type='text/javascript'>alert('supprimé avec succès ...');</script>";
+	}
+	
+	static public function ListeClients()
+	{
+        $result = mysql_query("select * from client");
+		$items = array();
+
+	 while ($ligne = mysql_fetch_assoc($result)) {
+            	$item = new Client();
+            	$item->setId($ligne['idClient']);
+            	$item->setNom_client($ligne['nomClient']);
+            	$item->setPrenom_client($ligne['prenomClient']);
+		$item->setSexe($ligne['sexe']);
+		$item->setDateNaiss($ligne['dateNaissClient']);
+		$item->setAdresse($ligne['adresseClient']);
+		$item->setEmail($ligne['emailClient']);
+		$item->setEspace($ligne['id_espace']);
+		$item->setPanier($ligne['id_panier']);
+            	$items[] = $item;
+        }
+        return $items;
+	}	
+	
     }
 ?>
