@@ -1,0 +1,94 @@
+<?php
+mysql_connect('localhost', 'root', '')or die("erreur de connexion avec le serveur web");
+mysql_select_db('ecommerce')or die ("erreur de connexion avec la base de donnée");
+
+class Commande
+{
+	private $clientID;
+	private $produitID;
+	private $commandeID;
+	private $statut;
+	private $dateCommande;
+	private $db;
+	
+	//Constructeur par défaut de la classe Commande
+	public function __construct(){
+		//$this->db = new db();
+	}
+	// Getter & Setter de l'attribut clientID
+		public function getClientID(){
+		return $this->clientID;
+	}
+	public function setClientID($id){
+		$this->clientID=$id;
+	}
+	// Getter & Setter de l'attribut produitID
+	public function getProduitID(){
+		return $this->produitID;
+	}
+	public function setProduitID($id){
+		$this->produitID=$id;
+	}
+	// Getter & Setter de l'attribut commandeID
+	public function getCommandeID(){
+		return $this->commandeID;
+	}
+	public function setCommandeID($id){
+		$this->commandeID=$id;
+	}
+	// Getter & Setter de l'attribut statut
+	public function getStatut(){
+		return $this->statut;
+	}
+	public function setStatut($statut){
+		$this->statut=$statut;
+	}
+	// Getter & Setter de l'attribut dateCommande
+	public function getDateCommande(){
+		return $this->dateCommande;
+	}
+	public function setDateCommande($dateCommande){
+		$this->dateCommande=$dateCommande;
+	}	
+	// La fonction listeCommandes() récupére l'ensemble des commande à partir de la BD
+	public function listeCommandes()
+	{
+		$query = 'select * from commande';
+		$res = mysql_query($query);
+        $items = array();
+        while ($ligne = mysql_fetch_assoc($res)) {		
+			$items[] = $ligne['idCommande'];
+			$items[] = $ligne['idClient'];
+			$items[] = $ligne['idProduit'];
+			$items[] = $ligne['Statut'];
+			$items[] = $ligne['dateCommande'];			
+        }
+	return $items;
+	}
+	// La fonction updateCommande() modifie le statut de la commande
+	public function updateCommande(){
+		$query = 'update commande set statut="'.$_POST['statut'].'" where idCommande='.$_POST['CommandeID'];
+		mysql_query($query);
+	}
+	// La fonction detailCommande($id) récupére la commande dont l'id = $id
+	public function detailCommande($id){
+		$query = 'select * from commande where idCommande='.$id;
+		$res = mysql_query($query);
+        $items = array();
+        while ($ligne = mysql_fetch_assoc($res)) {		
+			$items[] = $ligne['idCommande'];
+			$items[] = $ligne['idClient'];
+			$items[] = $ligne['idProduit'];
+			$items[] = $ligne['Statut'];
+			$items[] = $ligne['dateCommande'];		
+        }
+	return $items;	
+	}
+	
+}
+/*
+$commande = new Commande();
+$items = array();
+$items=$commande->listeCommandes();
+print_r($items);
+*/
